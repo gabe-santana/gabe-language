@@ -2,10 +2,12 @@
 #define GAB_LEXER_H
 
 #include "token.h"
+#include <stdio.h>
 
 typedef struct LEXER_STRUCT
 {
     char* src;
+    size_t src_size;
     char c;
     unsigned int i;
 } lexer_T;

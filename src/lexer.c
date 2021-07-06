@@ -1,7 +1,7 @@
 #include "include/lexer.h"
+#include "include/token.h"
 #include <string.h>
 #include <stdlib.h>
-
 lexer_T* init_lexer(char* src)
 {
     lexer_T* lexer = calloc(1, sizeof(struct LEXER_STRUCT));

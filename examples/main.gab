@@ -1,3 +1,11 @@
+//function sumTwo. Gets two parameters n1:int, n2:int
+sumTwo = (n1: int, n2:int):int => n1+n2;
+
+// main function (entry point)
 main = (argc: int, argv: Array<string>):int => {
+    //sum declareted and receive 2
+    sum:int = sumTwo(1,1);
+
+    //returns 0 to main
     return 0;
 }

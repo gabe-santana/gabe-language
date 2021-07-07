@@ -1,5 +1,4 @@
 #include "include/gab.h"
-#include "include/macros.h"
 
 #include <stdio.h>
 

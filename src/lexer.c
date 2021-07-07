@@ -2,6 +2,8 @@
 #include "include/token.h"
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
+
 lexer_T* init_lexer(char* src)
 {
     lexer_T* lexer = calloc(1, sizeof(struct LEXER_STRUCT));
@@ -26,6 +28,10 @@ void lexer_skip_whitespace(lexer_T* lexer)
 {
     while(lexer->c == 13 || lexer->c == 10 || lexer->c == '\t' || lexer->c == ' ')
         lexer_advance(lexer);
+}
+char lexer_peek(lexer_T* lexer, int offset)
+{
+    return lexer->src[lexer->i + offset];
 }
 
 token_T* lexer_parse_id(lexer_T* lexer )
@@ -52,7 +58,18 @@ token_T* lexer_next_token(lexer_T* lexer)
 {
     while(lexer->c != '\0')
     {
-        if(isalnum(lexer->c))
+        if(isalpha(lexer->c))
             return lexer_advance_with(lexer, lexer_parse_id(lexer));
+
+        switch (lexer->c)
+        {
+            case '=':
+                /* code */
+                break;
+            
+            default:
+                break;
+        }
     }
+    return init_token(0, TOKEN_EOF);
 }

@@ -66,7 +66,7 @@ token_T* lexer_next_token(lexer_T* lexer)
             case '=': {
                 if(lexer_peek(lexer, 1) == '>') 
                     return lexer_advance_with(lexer, init_token("=>", TOKEN_RIGHT_ARROW));
-                return lexer_advance_with(lexer, init_token('=', TOKEN_EQUALS));
+                return lexer_advance_with(lexer, init_token("=", TOKEN_EQUALS));
             } break;
 
             default:
